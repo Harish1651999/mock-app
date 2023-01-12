@@ -9,7 +9,7 @@ function App() {
 
   const toggleParagraphHandler = useCallback(() => {
     if (allowToggle) {
-      setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+      setShowParagraph((prevParagraph) => !prevParagraph);
     }
   }, [allowToggle]);
 
