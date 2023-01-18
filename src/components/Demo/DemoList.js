@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classes from "./DemoList.module.css";
 
 const DemoList = (props) => {
-  const sortedList = props.items.sort((a, b) => a - b);
+  const { items } = props;
+
+  const sortedList = useMemo(() => {
+    console.log("Items sorted");
+    return items.sort((a, b) => a - b);
+  }, [items]);
+  console.log("DemoList running");
+
   return (
     <div className={classes.list}>
       <h2>{props.title}</h2>
@@ -15,4 +22,4 @@ const DemoList = (props) => {
   );
 };
 
-export default DemoList;
+export default React.memo(DemoList);
